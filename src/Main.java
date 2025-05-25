@@ -10,7 +10,7 @@ import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) {
-        String str = "Jeff,jeff@mail.com,23; Jack, jack@mail.com, 45; Nick, nick@mail.com, 24; Oleg, oleg@mail.com,22";
+        String str = "Jeff,jeff@mail.com,23;Jack,jack@mail.com,45;Nick,nick@mail.com,24;Oleg,oleg@mail.com,22";
         FileOutputStream fileOutputStream=null;
         try {
             fileOutputStream = new FileOutputStream("example.txt");

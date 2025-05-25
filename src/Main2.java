@@ -34,9 +34,10 @@ public class Main2 {
         catch (IOException e) {
             System.out.println("error");
         }
-        //finally{
-        //    try {
-        //        fileOutputStream.close();
+        //почему finally не работает?
+        // finally{
+        //try {
+          //     fileOutputStream.close();
         //    } catch (Exception e) {
         //        System.out.println("не получилось закрыть поток");
            // }
