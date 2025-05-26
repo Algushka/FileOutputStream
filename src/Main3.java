@@ -4,8 +4,10 @@ import java.io.IOException;
 
 public class Main3 {
     public static void main(String[] args) {
-ReadFromFile("example.txt");
+        //System.out.println(checkAddInEmail("fdhsjfk"));
+        ReadFromFile("example.txt");
     }
+
     public static String ReadFromFile(String nameOfFile) {
 StringBuilder sb = null;
         try ( FileInputStream fileInputStream = new FileInputStream(nameOfFile);){
@@ -46,6 +48,10 @@ StringBuilder sb = null;
             System.out.println("Всем привет !");
         }
         return sb.toString();
+    }
+    public static boolean checkAddInEmail (String email) {
+        return email.contains("@");
+
     }
 
 }
