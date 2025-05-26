@@ -15,7 +15,7 @@ StringBuilder sb = null;
         int counterOfPersons=0;
       boolean firstElement = true;
         while ((data = fileInputStream.read())!=-1) {
-            if (!firstElement) sb.append(';');
+            if (!firstElement) sb.append(',');
             counterOfPersons++;
             //System.out.println("Количество человек" + counterOfPersons);
             if ((firstElement)||(counterOfCommas==2)){
