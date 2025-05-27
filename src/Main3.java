@@ -16,12 +16,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Main3 {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws MyException{
 
        // System.out.println(checkAddInEmail("fdhsjfk"));
         String str=ReadFromFile("example.txt");
         //addToPerson(str);
-        List<Person> list = addToPersonFormList(str);
+        List<Person> list = formPersonListFromString(str);
         printPersonList(list);
     }
 
@@ -75,12 +75,19 @@ StringBuilder sb = null;
             System.out.println(element);
         }
     }
-    public static List<Person> addToPersonFormList(String str) {
+    public static List<Person> formPersonListFromString(String str) throws MyException {
         List <Person> list =new ArrayList<>() ;
         String[]strings=str.split(",");
         System.out.println("длина массива строк"+ strings.length);
         for (int i=0; i< strings.length-2; i=i+3){
-                int index=0;
+              //  int index=0;
+                if (checkAddInEmail (strings[i+1])!=true)
+                {
+                    //System.out.println("ээээээ"+strings[i+1]);
+                    System.out.println("Mistake! Add '@' to email address: " + strings[i+1]);
+                throw new MyException();}
+
+
                try {int age=Integer.parseInt(strings[i+2]);
                    Person person = new Person(strings[i], strings[i + 1], age);
                    System.out.println(person);
