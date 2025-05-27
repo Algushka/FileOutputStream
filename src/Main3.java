@@ -1,11 +1,28 @@
+//Напишите программу,
+//        которая читает файл example.txt и
+//        формирует список Person(String name,
+//        String email,int age) Подсказка 1:
+//        в исходной строке поля разделены ','
+//        а объекты ';' Подсказка 2: преобразование
+//        возраста из строки в int - Integer.parseInt()
+//        Подсказка 2: преобразование возраста из строки
+//        в int - Integer.parseInt() (и кстати, там может быть Exception)
+//
+//
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main3 {
     public static void main(String[] args) {
-        //System.out.println(checkAddInEmail("fdhsjfk"));
-        ReadFromFile("example.txt");
+
+       // System.out.println(checkAddInEmail("fdhsjfk"));
+        String str=ReadFromFile("example.txt");
+        //addToPerson(str);
+        List<Person> list = addToPersonFormList(str);
+        printPersonList(list);
     }
 
     public static String ReadFromFile(String nameOfFile) {
@@ -51,8 +68,38 @@ StringBuilder sb = null;
     }
     public static boolean checkAddInEmail (String email) {
         return email.contains("@");
-
+    }
+    public static void addToPerson(String str) {
+        String[]strings=str.split(",");
+        for (String element:strings) {
+            System.out.println(element);
+        }
+    }
+    public static List<Person> addToPersonFormList(String str) {
+        List <Person> list =new ArrayList<>() ;
+        String[]strings=str.split(",");
+        System.out.println("длина массива строк"+ strings.length);
+        for (int i=0; i< strings.length-2; i=i+3){
+                int index=0;
+               try {int age=Integer.parseInt(strings[i+2]);
+                   Person person = new Person(strings[i], strings[i + 1], age);
+                   System.out.println(person);
+                   list.add(person);
+                }
+               catch (Exception e){
+                   System.out.println("Not proper format of age");
+           }
+         //   Person person = new Person(strings[i], strings[i + 1], Integer.parseInt(strings[i + 2]));
+        //    System.out.println(person);
+        //    list.add(person);
+        }
+        return list;
     }
 
+    public static void printPersonList(List<Person> list) {
+        for (Person element: list ) {
+            System.out.println(element);
+        }
+    }
 }
 
